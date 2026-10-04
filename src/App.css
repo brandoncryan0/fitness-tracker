@@ -1,0 +1,329 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0d0d0d;
+  color: #f5f5f5;
+  font-family: Arial, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app {
+  width: min(900px, 94%);
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.workout-header {
+  margin-bottom: 24px;
+}
+
+.workout-header h1 {
+  margin: 0 0 20px;
+}
+
+.workout-name-input {
+  width: 100%;
+  padding: 12px 14px;
+
+  background: #1e1e1e;
+  color: white;
+
+  border: 1px solid #444;
+  border-radius: 6px;
+}
+
+.workout-table {
+  border: 1px solid #444;
+  margin-bottom: 16px;
+}
+
+.table-header,
+.exercise-row {
+  display: grid;
+  grid-template-columns:
+    minmax(200px, 3fr)
+    minmax(70px, 1fr)
+    minmax(90px, 1fr);
+
+  align-items: center;
+}
+
+.exercise-name {
+  padding: 8px;
+}
+
+.rep-range {
+  text-align: center;
+}
+
+.weight-input {
+  width: 100%;
+  text-align: center;
+
+  background: #111;
+  color: white;
+
+  border: 1px solid #444;
+  border-radius: 4px;
+
+  padding: 8px;
+}
+
+.table-header {
+  background: #999;
+  color: #111;
+
+  font-size: 0.8rem;
+  font-weight: bold;
+
+  padding: 9px 10px;
+}
+
+.exercise-row {
+  background: #181818;
+  border-top: 1px solid #333;
+  padding: 7px 10px;
+  gap: 8px;
+}
+
+.exercise-row:nth-child(odd) {
+  background: #262626;
+}
+
+.exercise-row input {
+  width: 100%;
+
+  background: transparent;
+  color: white;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  padding: 8px;
+}
+
+.exercise-row input:focus {
+  outline: none;
+
+  background: #111;
+  border-color: #666;
+}
+
+.rep-input,
+.weight-input {
+  text-align: center;
+}
+
+.remove-button {
+  border: none;
+  background: transparent;
+
+  color: #888;
+
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.remove-button:hover {
+  color: white;
+}
+
+.add-exercise,
+.finish-workout {
+  width: 100%;
+
+  border: 1px solid #444;
+  border-radius: 5px;
+
+  padding: 12px;
+
+  color: white;
+  cursor: pointer;
+}
+
+.add-exercise {
+  background: #252525;
+  margin-bottom: 10px;
+}
+
+.finish-workout {
+  background: #3d523f;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .app {
+    width: 96%;
+  }
+
+  .table-header,
+  .exercise-row {
+    grid-template-columns:
+      minmax(130px, 2fr)
+      70px
+      80px
+      30px;
+  }
+
+  .exercise-row {
+    padding: 5px;
+    gap: 3px;
+  }
+
+  .exercise-row input {
+    padding: 7px 4px;
+  }
+}
+
+.workout-selector {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.workout-button {
+  width: 100%;
+  min-width: 0;
+
+  padding: 10px 4px;
+
+  background: #1b1b1b;
+  color: #aaa;
+
+  border: 1px solid #3a3a3a;
+  border-radius: 6px;
+
+  font-size: 0.8rem;
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.workout-button:hover {
+  background: #292929;
+  color: white;
+}
+
+.workout-button.active {
+  background: #536b55;
+  color: white;
+  border-color: #718b73;
+}
+
+.workout-button:hover {
+  background: #292929;
+  color: white;
+}
+
+.workout-button.active {
+  background: #536b55;
+  color: white;
+  border-color: #718b73;
+}
+
+.current-workout {
+  margin: 0 0 15px;
+  font-size: 1.3rem;
+}
+
+.weight-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.previous-weight {
+  font-size: 0.65rem;
+  color: #888;
+  text-align: center;
+}
+
+.main-nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.main-nav button {
+  flex: 1;
+}
+
+.main-nav .active {
+  background: #536b55;
+  border-color: #718b73;
+}
+
+.history h2 {
+  margin-bottom: 16px;
+}
+
+.history-card {
+  background: #181818;
+  border: 1px solid #333;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.history-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px;
+
+  background: #2a2a2a;
+}
+
+.history-card-header h3 {
+  margin: 0;
+}
+
+.history-card-header span {
+  color: #999;
+  font-size: 0.8rem;
+}
+
+.history-exercise {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+
+  padding: 9px 12px;
+
+  border-top: 1px solid #292929;
+}
+
+.history-exercise span:nth-child(2),
+.history-exercise strong {
+  text-align: center;
+}
+
+.delete-history-button {
+  background: transparent;
+  color: #c77777;
+
+  border: 1px solid #6b3d3d;
+  border-radius: 5px;
+
+  padding: 6px 10px;
+
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.delete-history-button:hover {
+  background: #4a2525;
+  color: white;
+}
